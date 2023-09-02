@@ -1,24 +1,22 @@
 [
-    {
-        "hubName": "kinx",
-        "creator": "wunderwise",
-        "link": "https://hub.virtamate.com/resources/kinx.19089/",
-        "normalName": "Jinx",
-        "normalDescription": "Jinx from Arcane TV Series",
-        "faceReview": 4,
-        "bodyReview": 4,
-        "miniImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/ArcaneJinx.jpeg/200px-ArcaneJinx.jpeg",
-        "personImage": "https://1387905758.rsc.cdn77.org/internal_data/attachments/125/125836-e52c559b65cf395ac896ba309c0b80f1.data"
-    },
-    {
-        "hubName": "Emma Mac",
-        "creator": "Shesky",
-        "link": "https://hub.virtamate.com/media/emma-mac.54204/",
-        "normalName": "Emma Mackey",
-        "normalDescription": "British French Actress",
-        "faceReview": 4,
-        "bodyReview": 4,
-        "miniImage": "https://upload.wikimedia.org/wikipedia/commons/6/68/Emma_Mackey_MTV_UK%2C_January_2019.jpg",
-        "personImage": "https://1387905758.rsc.cdn77.org/internal_data/attachments/283/283173-2c26b166007cd5d44369a9d18986a01e.data"
-    }
+  {
+    "hubName": "kinx",
+    "creator": "wunderwise",
+    "link": "https://hub.virtamate.com/resources/kinx.19089/",
+    "normalName": "Jinx",
+    "normalDescription": "Jinx from Arcane TV Series",
+    "faceReview": 4,
+    "bodyReview": 4,
+    "miniImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/ArcaneJinx.jpeg/200px-ArcaneJinx.jpeg"
+  },
+  {
+    "hubName": "Emma Mac",
+    "creator": "Shesky",
+    "link": "https://hub.virtamate.com/media/emma-mac.54204/",
+    "normalName": "Emma Mackey",
+    "normalDescription": "British French Actress",
+    "faceReview": 4,
+    "bodyReview": 4,
+    "miniImage": "https://upload.wikimedia.org/wikipedia/commons/6/68/Emma_Mackey_MTV_UK%2C_January_2019.jpg"
+  }
 ]
