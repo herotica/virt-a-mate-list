@@ -2,10 +2,11 @@ import { render } from "preact";
 import { useState } from "preact/hooks";
 import preactLogo from "./assets/preact.svg";
 import "./style.css";
-import Data from "./example.json";
+import Data from "./data.json";
 
 export function App() {
   const [query, setQuery] = useState("");
+  const [spreadData, setSpreadData] = useState(null);
 
   const filteredItems =
     query.length > 0
@@ -15,6 +16,7 @@ export function App() {
           );
         })
       : Data;
+
 
   return (
     <main className="h-full flex flex-col text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-500 to-red-800 p-5 lg:p-10">
