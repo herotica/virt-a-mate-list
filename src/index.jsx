@@ -11,12 +11,11 @@ export function App() {
   const filteredItems =
     query.length > 0
       ? Data.filter((item) => {
-          return `${item.hubName} ${item.creator} ${item.normalName} ${item.normalDescription}`.toLowerCase().includes(
-            query
-          );
+          return `${item.hubName} ${item.creator} ${item.normalName} ${item.normalDescription}`
+            .toLowerCase()
+            .includes(query);
         })
       : Data;
-
 
   return (
     <main className="h-full flex flex-col text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-500 to-red-800 p-5 lg:p-10">
@@ -24,7 +23,13 @@ export function App() {
         <h1 className="text-3xl underline text-center mb-4">
           Virt-a-Mate lookalikes
         </h1>
-        <p className="mb-6 text-sm">list of looklikes on virt-a-mate hub</p>
+        <p className="mb-6 text-sm">
+          list of looklikes on virt-a-mate hub, built from a google sheets
+          (please request access if want to help, just no renaming/moving columns!){" "}
+          <a href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0">
+            Sheet
+          </a>, also code available on <a href="https://github.com/herotica/virt-a-mate-list">github </a>
+        </p>
         <div className="flex flex-col md:flex-row gap-3 mb-8 items-center">
           <h3>Search</h3>
           <input
