@@ -29,11 +29,11 @@ export function App() {
             list of looklikes on virt-a-mate hub, built from a google sheets
             (please request access if want to help, just no renaming/moving
             columns!){" "}
-            <a href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0">
+            <a className="text-blue-700 font-bold" href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0">
               Sheet
             </a>
             , also code available on{" "}
-            <a href="https://github.com/herotica/virt-a-mate-list">github </a>
+            <a className="text-blue-700 font-bold" href="https://github.com/herotica/virt-a-mate-list">github </a>
           </p>
           <div className="flex flex-col md:flex-row gap-3 mb-8 items-center">
             <h3>Search</h3>
@@ -46,9 +46,9 @@ export function App() {
             ></input>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-6 w-full">
             {filteredItems.map((item) => (
-              <Item item={item} />
+              <Item key={item.hubName + item.creator} item={item} />
             ))}
           </div>
         </div>
