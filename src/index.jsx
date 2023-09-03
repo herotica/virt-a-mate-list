@@ -25,10 +25,13 @@ export function App() {
         </h1>
         <p className="mb-6 text-sm">
           list of looklikes on virt-a-mate hub, built from a google sheets
-          (please request access if want to help, just no renaming/moving columns!){" "}
+          (please request access if want to help, just no renaming/moving
+          columns!){" "}
           <a href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0">
             Sheet
-          </a>, also code available on <a href="https://github.com/herotica/virt-a-mate-list">github </a>
+          </a>
+          , also code available on{" "}
+          <a href="https://github.com/herotica/virt-a-mate-list">github </a>
         </p>
         <div className="flex flex-col md:flex-row gap-3 mb-8 items-center">
           <h3>Search</h3>
@@ -52,6 +55,7 @@ export function App() {
 }
 
 function Item({ item }) {
+  const paid = item?.paid && item.paid.toLowerCase().trim() === "y";
   return (
     <div className="h-40 flex border border-black bg-white text-slate-800 rounded overflow-hidden">
       <div className="block w-1/3">
@@ -64,9 +68,16 @@ function Item({ item }) {
         <h4 className="font-bold">{item?.normalName || "missing"}</h4>
         <h5 className="">Hub Name: {item?.hubName || "missing"}</h5>
         <p>creator: {item?.creator || "missing"}</p>
-        <a href={item.link} target="_blank" className="text-blue-700 font-bold">
-          LINK
-        </a>
+        <div className="flex flex-row gap-4">
+          <a
+            href={item.link}
+            target="_blank"
+            className="text-blue-700 font-bold"
+          >
+            LINK
+          </a>
+          <b className={`font-bold ${paid ? 'text-red-500' : 'text-green-400'}`}>{paid ? '$' : 'free'}</b>
+        </div>
         <p className="text-xs">
           Face {item?.faceReview || 0}/5 , Body {item?.bodyReview || 0}/5
         </p>

@@ -31,6 +31,7 @@ try {
       faceReview: key[4],
       bodyReview: key[5],
       miniImage: key[6],
+      paid: key[8]
     }));
 
     fs.writeFile(path, JSON.stringify(dataAsJSON, null, 2), (error) => {
