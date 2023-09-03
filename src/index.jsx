@@ -4,17 +4,19 @@ import preactLogo from "./assets/preact.svg";
 import "./style.css";
 import Data from "./data.json";
 
+const FilterMissing = Data.filter(item => (item.hubName && item.normalName && item.link));
+
 export function App() {
   const [query, setQuery] = useState("");
 
   const filteredItems =
     query.length > 0
-      ? Data.filter((item) => {
+      ? FilterMissing.filter((item) => {
           return `${item.hubName} ${item.creator} ${item.normalName} ${item.normalDescription}`
             .toLowerCase()
             .includes(query);
         })
-      : Data;
+      : FilterMissing;
 
   return (
     <main className="h-full flex flex-col text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-500 to-red-800">
