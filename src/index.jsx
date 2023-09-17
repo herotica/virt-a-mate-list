@@ -1,10 +1,59 @@
 import { render } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import preactLogo from "./assets/preact.svg";
 import "./style.css";
 import Data from "./data.json";
 
-const FilterMissing = Data.filter(item => (item.hubName && item.normalName && item.link));
+const FilterMissing = Data.filter(
+  (item) => item.hubName && item.normalName && item.link
+);
+
+const pageOptions = {
+  10: 10,
+  20: 20,
+  40: 40,
+  100: 100,
+  200: 200,
+};
+
+function Pager({ filteredItems }) {
+  const [pageSize, setPageSize] = useState(pageOptions[20]);
+  const [currentpage, setCurrentPage] = useState(0);
+
+  const pages = Math.ceil(filteredItems.length / pageSize);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [filteredItems]);
+
+  const PageElements = [];
+  for (let index = 0; index < pages; index++) {
+    PageElements.push(
+      <buton
+        className={`p-1.5 px-3 border-2  rounded-md bg-red-400 hover:bg-red-600 transition-colors cursor-pointer ${
+          index === currentpage ? "border-red-200" : "border-red-700"
+        }`}
+        key={"page" + index}
+        onClick={() => setCurrentPage(index)}
+      >
+        {index + 1}
+      </buton>
+    );
+  }
+  const pagedItems = filteredItems.slice((currentpage) * pageSize, (currentpage + 1) * pageSize)
+
+  return (
+    <>
+      <div className="flex flex-wrap gap-3 mx-4  mb-4">{PageElements}</div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-6 w-full">
+        {pagedItems.map((item, i) => (
+          <Item key={item.hubName + item.creator + i} item={item} />
+        ))}
+      </div>
+    </>
+  );
+}
 
 export function App() {
   const [query, setQuery] = useState("");
@@ -14,7 +63,7 @@ export function App() {
       ? FilterMissing.filter((item) => {
           return `${item.hubName} ${item.creator} ${item.normalName} ${item.normalDescription}`
             .toLowerCase()
-            .includes(query);
+            .includes(query.toLowerCase());
         })
       : FilterMissing;
 
@@ -29,13 +78,21 @@ export function App() {
             list of looklikes on virt-a-mate hub, built from a google sheets
             (please request access if want to help, just no renaming/moving
             columns!){" "}
-            <a className="text-blue-700 font-bold" href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0">
+            <a
+              className="text-blue-700 font-bold"
+              href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0"
+            >
               Sheet
             </a>
             , also code available on{" "}
-            <a className="text-blue-700 font-bold" href="https://github.com/herotica/virt-a-mate-list">github </a>
+            <a
+              className="text-blue-700 font-bold"
+              href="https://github.com/herotica/virt-a-mate-list"
+            >
+              github{" "}
+            </a>
           </p>
-          <div className="flex flex-col md:flex-row gap-3 mb-8 items-center">
+          <div className="flex flex-col md:flex-row gap-3 mb-4 items-center">
             <h3>Search</h3>
             <input
               type="text"
@@ -46,11 +103,7 @@ export function App() {
             ></input>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-6 w-full">
-            {filteredItems.map((item) => (
-              <Item key={item.hubName + item.creator} item={item} />
-            ))}
-          </div>
+          <Pager filteredItems={filteredItems} />
         </div>
       </div>
     </main>
