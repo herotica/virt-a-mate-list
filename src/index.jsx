@@ -22,6 +22,10 @@ function Pager({ filteredItems }) {
 
   const pages = Math.ceil(filteredItems.length / pageSize);
 
+  function handlePageSelect(e) {
+    setPageSize(e.target.value);
+  }
+
   useEffect(() => {
     setCurrentPage(0);
   }, [filteredItems]);
@@ -40,11 +44,25 @@ function Pager({ filteredItems }) {
       </buton>
     );
   }
-  const pagedItems = filteredItems.slice((currentpage) * pageSize, (currentpage + 1) * pageSize)
+  const pagedItems = filteredItems.slice(
+    currentpage * pageSize,
+    (currentpage + 1) * pageSize
+  );
 
   return (
     <>
-      <div className="flex flex-wrap gap-3 mx-4  mb-4">{PageElements}</div>
+      <div className="flex items-center gap-3 flex-col md:flex-row mb-4">
+        <div className="flex-1 flex flex-wrap gap-3 mx-4">{PageElements}</div>
+        <select
+          value={pageSize}
+          onChange={handlePageSelect}
+          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-lg"
+        >
+          {Object.keys(pageOptions).map((size, i) => (
+            <option value={size}>{size}</option>
+          ))}
+        </select>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 xl:gap-6 w-full">
         {pagedItems.map((item, i) => (
@@ -101,6 +119,7 @@ export function App() {
               class="block w-60 rounded-md border-0 px-3 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="all text search"
             ></input>
+            <div className=""># {filteredItems.length} / {FilterMissing.length}</div>
           </div>
 
           <Pager filteredItems={filteredItems} />
