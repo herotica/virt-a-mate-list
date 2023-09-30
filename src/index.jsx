@@ -88,23 +88,30 @@ export function App() {
   return (
     <main className="h-full flex flex-col text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-500 to-red-800">
       <div className="h-full overflow-y-auto p-5 lg:p-10">
+        <div className="flex gap-3 pb-3 h-0">
+          <a
+            className="text-xs underline rounded-full
+        p-1 transition text-yellow-300"
+            href="https://archival-vam-list.netlify.app/"
+          >
+            Archival Version
+          </a>
+        </div>
         <div className="lg:max-w-3xl xl:max-w-none mx-auto w-full">
           <h1 className="text-3xl underline text-center mb-4">
             Virt-a-Mate lookalikes
           </h1>
           <p className="mb-6 text-sm">
-            list of looklikes on virt-a-mate hub, built from a google sheets
-            (please request access if want to help, just no renaming/moving
-            columns!){" "}
+            list of looklikes on virt-a-mate hub, built from a google sheets, which is open to editing
             <a
-              className="text-blue-700 font-bold"
+              className="text-yellow-300 font-bold"
               href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0"
             >
               Sheet
             </a>
             , also code available on{" "}
             <a
-              className="text-blue-700 font-bold"
+              className="text-yellow-300 font-bold"
               href="https://github.com/herotica/virt-a-mate-list"
             >
               github{" "}
@@ -119,7 +126,9 @@ export function App() {
               class="block w-60 rounded-md border-0 px-3 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="all text search"
             ></input>
-            <div className=""># {filteredItems.length} / {FilterMissing.length}</div>
+            <div className="">
+              # {filteredItems.length} / {FilterMissing.length}
+            </div>
           </div>
 
           <Pager filteredItems={filteredItems} />
@@ -147,7 +156,7 @@ function Item({ item }) {
           <a
             href={item.link}
             target="_blank"
-            className="text-blue-700 font-bold"
+            className="text-yellow-300 font-bold"
           >
             LINK
           </a>
