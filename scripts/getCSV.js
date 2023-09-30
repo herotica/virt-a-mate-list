@@ -1,7 +1,7 @@
 import Papa from "papaparse";
 import fs from "fs";
 
-const sheetsID = "1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98";
+const sheetsID = "1SBUy8k6ZwkCKgMW0lutZE30p4SD0Ni6xxo85QvYg_ig";
 const sheetName = "data";
 const csvlink = `https://docs.google.com/spreadsheets/d/${sheetsID}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
 
