@@ -89,27 +89,20 @@ export function App() {
     <main className="h-full flex flex-col text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-500 to-red-800">
       <div className="h-full overflow-y-auto p-5 lg:p-10">
         <div className="flex gap-3 pb-3 h-0">
-          <a
-            className="text-xs underline rounded-full
-        p-1 transition text-yellow-300"
-            href="https://archival-vam-list.netlify.app/"
-          >
-            Archival Version
-          </a>
         </div>
         <div className="lg:max-w-3xl xl:max-w-none mx-auto w-full">
           <h1 className="text-3xl underline text-center mb-4">
             Virt-a-Mate lookalikes
           </h1>
           <p className="mb-6 text-sm">
-            list of looklikes on virt-a-mate hub, built from a google sheets, which is open to editing
+            list of looklikes on virt-a-mate hub, built from a google sheets{' '}
             <a
               className="text-yellow-300 font-bold"
               href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0"
             >
               Sheet
             </a>
-            , also code available on{" "}
+            , source on{" "}
             <a
               className="text-yellow-300 font-bold"
               href="https://github.com/herotica/virt-a-mate-list"
