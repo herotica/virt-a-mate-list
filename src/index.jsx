@@ -98,7 +98,7 @@ export function App() {
             list of looklikes on virt-a-mate hub, built from a google sheets{' '}
             <a
               className="text-yellow-300 font-bold"
-              href="https://docs.google.com/spreadsheets/d/1BMj4TNgpsyskkN4AKTA1VypYFTy-RuE12mHzp3Q9f98/edit#gid=0"
+              href="https://docs.google.com/spreadsheets/d/1SBUy8k6ZwkCKgMW0lutZE30p4SD0Ni6xxo85QvYg_ig"
             >
               Sheet
             </a>
