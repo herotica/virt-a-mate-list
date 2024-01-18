@@ -33,7 +33,7 @@ try {
       miniImage: key[6],
       paid: key[8]
     })).sort(function(a, b) {
-      return (a.faceReview + a.bodyReview) - (b.faceReview + b.bodyReview);
+      return (b.faceReview + b.bodyReview) - (a.faceReview + a.bodyReview);
     });
 
     fs.writeFile(path, JSON.stringify(dataAsJSON, null, 2), (error) => {
